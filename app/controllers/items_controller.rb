@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @item  = current_user.items.new
   end
 
@@ -13,11 +14,11 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
-  def create
+  def create_item
     @item = current_user.items.build(item_params)
     if @item.save
       flash[:success] = "Item has been created!"
-      redirect_to @item
+      redirect_to action: "show", id: @item.id
     else
       render 'new'
     end

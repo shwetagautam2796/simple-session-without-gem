@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="offset-4 col-md-4">
+      <h3 class='text-center'>
+      	<%= "Item Name:" %>
+        <%= @item.name %>
+      </h3>
+      <h3 class='text-center'>
+        <%#= @user.email %>
+      </h3>
+  </div>
+  <div class="row">
+  <div class="offset-4 col-md-4">
+      <h3 class='text-center'>
+        <%= "Total Items:" %>
+        <% items = find_item session[:user_id]%>
+        <ul>
+	        <% items.each do |value, index| %>
+	        	<li><%= "#{index} #{value}"%></li>
+	        <%end%>
+        </ul>
+      </h3>
+      <h3 class='text-center'>
+        <%#= @user.email %>
+      </h3>
+  </div>
+  <%#= link_to "Items", item_show_users_path%>
+</div>
